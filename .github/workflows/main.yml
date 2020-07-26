@@ -70,7 +70,8 @@ jobs:
       
     - name: Make
       # For debugging builds, remove option "-j" for clearer output. Add "--trace" to see details.
-      run:  cd build && make -j pinetime-app
+      # For faster builds, add option "-j".
+      run:  cd build && make pinetime-app
       
     - name: Find output
       run:  find . -name pinetime-app.out
