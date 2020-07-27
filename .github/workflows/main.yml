@@ -74,7 +74,7 @@ jobs:
       run:  cd build && make pinetime-app
       
     - name: Find output
-      run:  find . -name pinetime-app.out
+      run:  find . -name pinetime-app.out -ls
 
     - name: Upload built firmware
       uses: actions/upload-artifact@v2
