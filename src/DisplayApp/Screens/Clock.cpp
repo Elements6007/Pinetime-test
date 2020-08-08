@@ -43,7 +43,7 @@ Clock::Clock(DisplayApp* app,
 
   label_date = lv_label_create(lv_scr_act(), NULL);
 
-  lv_obj_align(label_date, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 40, -20);
+  lv_obj_align(label_date, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 70, -70);
 
   label_time = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_style(label_time, LV_LABEL_STYLE_MAIN, LabelBigStyle);
@@ -143,7 +143,7 @@ bool Clock::Refresh() {
 
     if ((year != currentYear) || (month != currentMonth) || (dayOfWeek != currentDayOfWeek) || (day != currentDay)) {
       char dateStr[22];
-      sprintf(dateStr, "%s %d,%s %d", DayOfWeekToString(dayOfWeek), day, MonthToString(month), year);
+      sprintf(dateStr, "%s %d,%s\n         %d", DayOfWeekToString(dayOfWeek), day, MonthToString(month), year);
       lv_label_set_text(label_date, dateStr);
 
 
