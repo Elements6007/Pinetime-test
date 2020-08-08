@@ -42,11 +42,11 @@ Clock::Clock(DisplayApp* app,
 
   label_hours = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_style(label_hours, LV_LABEL_STYLE_MAIN, LabelBigStyle);
-  lv_obj_align(label_hours, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, -42, -32);
+  lv_obj_align(label_hours, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 42, -32);
   
   label_minutes = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_style(label_minutes, LV_LABEL_STYLE_MAIN, LabelBigStyle);
-  lv_obj_align(label_minutes, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, -42, 32);
+  lv_obj_align(label_minutes, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 42, 32);
 
   backgroundLabel = lv_label_create(lv_scr_act(), NULL);
   backgroundLabel->user_data = this;
@@ -128,12 +128,12 @@ bool Clock::Refresh() {
     char hoursChar[3];
     sprintf(hoursChar, "%02d", hour);
 
+    char minutesStr[4];
+    sprintf(minutesStr, "%c%c", minutesChar[0], minutesChar[1]);  
+	  
     char hoursStr[4];
     sprintf(hoursStr, "%c%c", hoursChar[0],hoursChar[1]);
-	
-	char minutesStr[4];
-    sprintf(minutesStr, "%c%c", minutesChar[0], minutesChar[1]);
-
+	  
     if(hoursChar[0] != displayedChar[0] || hoursChar[1] != displayedChar[1] || minutesChar[0] != displayedChar[2] || minutesChar[1] != displayedChar[3]) {
       displayedChar[0] = hoursChar[0];
       displayedChar[1] = hoursChar[1];
@@ -141,7 +141,7 @@ bool Clock::Refresh() {
       displayedChar[3] = minutesChar[1];
 
       lv_label_set_text(label_hours, hoursStr);
-	  lv_label_set_text(label_minutes, minutesStr);
+      lv_label_set_text(label_minutes, minutesStr);
     }
 
     if ((year != currentYear) || (month != currentMonth) || (dayOfWeek != currentDayOfWeek) || (day != currentDay)) {
