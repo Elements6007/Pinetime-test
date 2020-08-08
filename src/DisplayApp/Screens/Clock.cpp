@@ -38,26 +38,11 @@ Clock::Clock(DisplayApp* app,
 
   label_date = lv_label_create(lv_scr_act(), NULL);
 
-  lv_obj_align(label_date, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, 90);
-//analog part
-  lv_obj_t * hour = lv_spinner_create(lv_scr_act(), NULL);
-  lv_spinner_set_arc_length(hour, 30);
-  lv_spinner_set_spin_time(hour, 43200000);
-  lv_obj_set_size(hour, 50, 50);
-  lv_obj_align(hour, NULL, LV_ALIGN_CENTER, 0, 0);
-  
-  lv_obj_t * minute = lv_spinner_create(lv_scr_act(), NULL);
-  lv_spinner_set_arc_length(minute, 6);
-  lv_spinner_set_spin_time(minute, 3600000);
-  lv_obj_set_size(minute, 100, 100);
-  lv_obj_align(minute, NULL, LV_ALIGN_CENTER, 0, 0);
-  
-  lv_obj_t * second = lv_spinner_create(lv_scr_act(), NULL);
-  lv_spinner_set_arc_length(second, 6)
-  lv_spinner_set_spin_time(second, 60000);
-  lv_obj_set_size(second, 150, 150);
-  lv_obj_align(second, NULL, LV_ALIGN_CENTER, 0, 0);
-//analog part
+  lv_obj_align(label_date, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, 60);
+
+  label_time = lv_label_create(lv_scr_act(), NULL);
+  lv_label_set_style(label_time, LV_LABEL_STYLE_MAIN, LabelBigStyle);
+  lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, 0);
 
   backgroundLabel = lv_label_create(lv_scr_act(), NULL);
   backgroundLabel->user_data = this;
