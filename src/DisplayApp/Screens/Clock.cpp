@@ -39,8 +39,15 @@ Clock::Clock(DisplayApp* app,
   bleIcon = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_text(bleIcon, Symbols::bluetooth);
   lv_obj_align(bleIcon, batteryPlug, LV_ALIGN_OUT_LEFT_MID, -5, 0);
+   
+  //bitmap
+                                             
+  lv_obj_t *img_src = lv_img_create(lv_scr_act(), NULL);  /*Create the image obj.*/
+  lv_img_set_src(img_src, &bitmap);  /*Set the created file as image (bitmap)*/
+  lv_obj_set_pos(img_src, 100, 100);      /*Set the positions*/
 
-
+  //bitmap                                            
+                                             
   label_date = lv_label_create(lv_scr_act(), NULL);
 
   lv_obj_align(label_date, lv_scr_act(), LV_ALIGN_IN_LEFT_MID, 0, 80);
