@@ -130,7 +130,7 @@ bool Clock::Refresh() {
     sprintf(hoursChar, "%02d", hour);
 
     char timeStr[6];
-    sprintf(timeStr, "%c%c:%c%c", hoursChar[0],hoursChar[1],minutesChar[0], minutesChar[1]);
+    sprintf(timeStr, "%c%c %c%c", hoursChar[0],hoursChar[1],minutesChar[0], minutesChar[1]);
 
     if(hoursChar[0] != displayedChar[0] || hoursChar[1] != displayedChar[1] || minutesChar[0] != displayedChar[2] || minutesChar[1] != displayedChar[3]) {
       displayedChar[0] = hoursChar[0];
@@ -186,13 +186,13 @@ const char *Clock::DayOfWeekToString(Pinetime::Controllers::DateTime::Days dayOf
 
 char const *Clock::DaysString[] = {
         "",
-        "MONDAY",
-        "TUESDAY",
-        "WEDNESDAY",
-        "THURSDAY",
-        "FRIDAY",
-        "SATURDAY",
-        "SUNDAY"
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "SaturdayY",
+        "Sunday"
 };
 
 char const *Clock::MonthsString[] = {
