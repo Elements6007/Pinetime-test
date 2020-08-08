@@ -41,11 +41,11 @@ Clock::Clock(DisplayApp* app,
   lv_obj_align(bleIcon, batteryPlug, LV_ALIGN_OUT_LEFT_MID, -5, 0);
    
   //bitmap
-                                             
-  lv_obj_t *img_src = lv_img_create(lv_scr_act(), NULL);  /*Create the image obj.*/
-  lv_img_set_src(img_src, &bitmap);  /*Set the created file as image (bitmap)*/
-  lv_obj_set_pos(img_src, 100, 100);      /*Set the positions*/
-
+     
+  bitmap = lv_label_create(lv_scr_act(), NULL);
+  lv_label_set_text(bitmap, Symbols::bitmap);
+  lv_obj_align(bitmap, lv_scr_act(), LV_ALIGN_OUT_RIGHT_MID, -45, 0);                                          
+  
   //bitmap                                            
                                              
   label_date = lv_label_create(lv_scr_act(), NULL);
@@ -111,7 +111,9 @@ bool Clock::Refresh() {
   lv_obj_align(batteryIcon, lv_scr_act(), LV_ALIGN_IN_TOP_RIGHT, -5, 5);
   lv_obj_align(batteryPlug, batteryIcon, LV_ALIGN_OUT_LEFT_MID, -5, 0);
   lv_obj_align(bleIcon, batteryPlug, LV_ALIGN_OUT_LEFT_MID, -5, 0);
-
+  //
+  lv_obj_align(bitmap, lv_scr_act(), LV_ALIGN_OUT_RIGHT_MID, -45, 0);  
+  //
   currentDateTime = dateTimeController.CurrentDateTime();
 
   if(currentDateTime.IsUpdated()) {
