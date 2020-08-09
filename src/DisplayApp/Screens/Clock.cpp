@@ -41,11 +41,7 @@ Clock::Clock(DisplayApp* app,
   lv_obj_align(bleIcon, batteryPlug, LV_ALIGN_OUT_LEFT_MID, -5, 0);
    
   //bitmap
-     
-  bitmap = lv_label_create(lv_scr_act(), NULL);
-  lv_label_set_text(bitmap, Symbols::bitmap);
-  lv_obj_align(bitmap, lv_scr_act(), LV_ALIGN_OUT_RIGHT_MID, -45, 0);                                          
-  
+
   //bitmap                                            
                                              
   label_date = lv_label_create(lv_scr_act(), NULL);
@@ -112,7 +108,7 @@ bool Clock::Refresh() {
   lv_obj_align(batteryPlug, batteryIcon, LV_ALIGN_OUT_LEFT_MID, -5, 0);
   lv_obj_align(bleIcon, batteryPlug, LV_ALIGN_OUT_LEFT_MID, -5, 0);
   //
-  lv_obj_align(bitmap, lv_scr_act(), LV_ALIGN_OUT_RIGHT_MID, -45, 0);  
+ 
   //
   currentDateTime = dateTimeController.CurrentDateTime();
 
