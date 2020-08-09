@@ -131,9 +131,9 @@ Clock::Clock(DisplayApp* app,
   lv_obj_align(bleIcon, batteryPlug, LV_ALIGN_OUT_LEFT_MID, -5, 0);
                                                                                    
   bitmap.header.always_zero = 0;
-  bitmap.header.w = 66;
-  bitmap.header.h = 64;
-  bitmap.data_size = 66 * 64 * LV_COLOR_SIZE / 8;
+  bitmap.header.w = 83;
+  bitmap.header.h = 86;
+  bitmap.data_size = 83 * 86 * LV_COLOR_SIZE / 8;
   bitmap.header.cf = LV_IMG_CF_TRUE_COLOR;
   bitmap.data = bitmap_map;
   lv_obj_t *img_src = lv_img_create(lv_scr_act(), NULL);  /*Create an image object*/
