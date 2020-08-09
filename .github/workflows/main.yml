@@ -144,25 +144,25 @@ jobs:
         path: build/src/pinetime-mcuboot-app-dfu/*
 
     #########################################################################################
-    # Make and Upload Standalone Firmware
+    # Make and Upload Standalone Firmware (Disabled)
       
-    - name: Make pinetime-app
-      run:  |
-        cd build
-        make pinetime-app
+    #- name: Make pinetime-app
+    #  run:  |
+    #    cd build
+    #    make pinetime-app
 
-    - name: Upload standalone firmware
-      uses: actions/upload-artifact@v2
-      with:
-        name: pinetime-app.out
-        path: build/src/pinetime-app.out
+    #- name: Upload standalone firmware
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #    name: pinetime-app.out
+    #    path: build/src/pinetime-app.out
 
     #########################################################################################
     # Finish
 
     - name: Find output
       run:  |
-        find . -name "pinetime-app.*" -ls
+        # find . -name "pinetime-app.*" -ls
         find . -name "pinetime-mcuboot-app.*" -ls
       
 # Embedded Arm Toolchain and nRF5 SDK will only be cached if the build succeeds.
