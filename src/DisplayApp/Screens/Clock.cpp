@@ -110,14 +110,15 @@ Clock::Clock(DisplayApp* app,
   bleIcon = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_text(bleIcon, Symbols::bluetooth);
   lv_obj_align(bleIcon, batteryPlug, LV_ALIGN_OUT_LEFT_MID, -5, 0);
-
+                                             
+/*
   //  Flip the odd and even bytes
   for (int i = 0; i < sizeof(bitmap_map); i += 2) {
     uint8_t b = bitmap_map[i];
     bitmap_map[i] = bitmap_map[i + 1];
     bitmap_map[i + 1] = b;
   }
-                            
+ */                           
   /*
   //  Reverse the bits
   for (int i = 0; i < sizeof(bitmap_map); i += 1) {
@@ -138,7 +139,7 @@ Clock::Clock(DisplayApp* app,
   lv_obj_t *img_src = lv_img_create(lv_scr_act(), NULL);  /*Create an image object*/
   lv_img_set_src(img_src, &bitmap);  /*Set the created file as image (bitmap)*/
   lv_obj_set_pos(img_src, 10, 10);      /*Set the positions*/                                             
-  lv_obj_align(img_src, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, -24, 0; 
+  lv_obj_align(img_src, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, -24, 0); 
                                              
                                              
   label_date = lv_label_create(lv_scr_act(), NULL);
