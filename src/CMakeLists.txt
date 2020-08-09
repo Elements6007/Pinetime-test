@@ -336,6 +336,9 @@ list(APPEND SOURCE_FILES
   DisplayApp/Screens/ScreenList.cpp
   DisplayApp/Screens/Label.cpp
   DisplayApp/Screens/FirmwareUpdate.cpp
+  //
+  DisplayApp/Screens/bitmap.c
+  //
   main.cpp
   drivers/St7789.cpp
   drivers/SpiNorFlash.cpp
