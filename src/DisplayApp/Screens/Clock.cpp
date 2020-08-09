@@ -136,7 +136,7 @@ Clock::Clock(DisplayApp* app,
   lv_obj_t *img_src = lv_img_create(lv_scr_act(), NULL);  /*Create an image object*/
   lv_img_set_src(img_src, &bitmap);  /*Set the created file as image (bitmap)*/
   lv_obj_set_pos(img_src, 10, 10);      /*Set the positions*/                                             
-  lv_obj_align(img_src, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, 0, 50); 
+  lv_obj_align(img_src, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, -20, 20; 
                                              
                                              
   label_date = lv_label_create(lv_scr_act(), NULL);
