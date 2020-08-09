@@ -317,6 +317,10 @@ list(APPEND IMAGE_FILES
 
   DisplayApp/Icons/bluetooth/os_bt_connected.c
   DisplayApp/Icons/bluetooth/os_bt_disconnected.c
+  
+  //
+  DisplayApp/Icons/bitmap.c
+  //
   )
 
 list(APPEND SOURCE_FILES
@@ -336,9 +340,6 @@ list(APPEND SOURCE_FILES
   DisplayApp/Screens/ScreenList.cpp
   DisplayApp/Screens/Label.cpp
   DisplayApp/Screens/FirmwareUpdate.cpp
-  //
-  DisplayApp/Screens/bitmap.c
-  //
   main.cpp
   drivers/St7789.cpp
   drivers/SpiNorFlash.cpp
