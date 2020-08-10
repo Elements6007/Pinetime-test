@@ -129,7 +129,16 @@ Clock::Clock(DisplayApp* app,
   bleIcon = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_text(bleIcon, Symbols::bluetooth);
   lv_obj_align(bleIcon, batteryPlug, LV_ALIGN_OUT_LEFT_MID, -5, 0);
-                                                                                   
+  
+ //  Reverse the bits
+  for (int i = 0; i < sizeof(bitmap_map); i += 1) {
+    uint8_t b = bitmap_map[i];
+    b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
+    b = (b & 0xCC) >> 2 | (b & 0x33) << 2;
+    b = (b & 0xAA) >> 1 | (b & 0x55) << 1;    
+    bitmap_map[i] = b;
+  }                                            
+                                                                                        
   bitmap.header.always_zero = 0;
   bitmap.header.w = 86;
   bitmap.header.h = 83;
