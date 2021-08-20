@@ -107,15 +107,6 @@ Clock::Clock(DisplayApp* app,
   lv_label_set_style(label_time, LV_LABEL_STYLE_MAIN, LabelBigStyle);
   lv_obj_align(label_time, lv_scr_act(), LV_ALIGN_IN_TOP_LEFT, 0, 0);
 
-  backgroundLabel = lv_label_create(lv_scr_act(), NULL);
-  backgroundLabel->user_data = this;
-  lv_obj_set_click(backgroundLabel, true);
-  lv_obj_set_event_cb(backgroundLabel, event_handler);
-  lv_label_set_long_mode(backgroundLabel, LV_LABEL_LONG_CROP);
-  lv_obj_set_size(backgroundLabel, 240, 240);
-  lv_obj_set_pos(backgroundLabel, 0, 0);
-  lv_label_set_text(backgroundLabel, "");
-
 
   heartbeatIcon = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_text(heartbeatIcon, Symbols::heartBeat);
