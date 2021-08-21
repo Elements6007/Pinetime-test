@@ -87,16 +87,7 @@ Clock::Clock(DisplayApp* app,
   lv_label_set_text(bleIcon, Symbols::bluetooth);
   lv_obj_align(bleIcon, batteryPlug, LV_ALIGN_OUT_LEFT_MID, -5, 0);
                                                        
-      bitmap.header.always_zero = 0;
-  bitmap.header.w = 40;
-  bitmap.header.h = 40;
-  bitmap.data_size = 40 * 40 * LV_COLOR_SIZE / 8;
-  bitmap.header.cf = LV_IMG_CF_TRUE_COLOR;
-  bitmap.data = bitmap_map;
-  lv_obj_t *img_src = lv_img_create(lv_scr_act(), NULL);  /*Create an image object*/
-  lv_img_set_src(img_src, &bitmap);  /*Set the created file as image (bitmap)*/
-  lv_obj_set_pos(img_src, 10, 10);      /*Set the positions*/                                             
-  lv_obj_align(img_src, lv_scr_act(), LV_ALIGN_IN_RIGHT_MID, -40, 0); 
+   
                                                                                       
                                              
   label_date = lv_label_create(lv_scr_act(), NULL);
@@ -117,7 +108,7 @@ Clock::Clock(DisplayApp* app,
   lv_obj_align(heartbeatValue, heartbeatIcon, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
 
   heartbeatBpm = lv_label_create(lv_scr_act(), NULL);
-  lv_label_set_text(heartbeatBpm, "BpM");
+  lv_label_set_text(heartbeatBpm, "BPM");
   lv_obj_align(heartbeatBpm, heartbeatValue, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
 
   stepValue = lv_label_create(lv_scr_act(), NULL);
@@ -208,7 +199,7 @@ bool Clock::Refresh() {
   // TODO heartbeat = heartBeatController.GetValue();
   if(heartbeat.IsUpdated()) {
     char heartbeatBuffer[4];
-    sprintf(heartbeatBuffer, "yee", heartbeat.Get());
+    sprintf(heartbeatBuffer, "67", heartbeat.Get());
     lv_label_set_text(heartbeatValue, heartbeatBuffer);
     lv_obj_align(heartbeatIcon, lv_scr_act(), LV_ALIGN_IN_BOTTOM_LEFT, 5, -2);
     lv_obj_align(heartbeatValue, heartbeatIcon, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
