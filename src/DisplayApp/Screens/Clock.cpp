@@ -74,6 +74,15 @@ Clock::Clock(DisplayApp* app,
   displayedChar[2] = 0;
   displayedChar[3] = 0;
   displayedChar[4] = 0;
+                                             
+     lv_obj_t * bg_clock_img = lv_img_create(lv_scr_act(), nullptr);
+  
+    lv_img_set_src(bg_clock_img, WF_BACKGROUND_C1);
+
+    
+
+  lv_obj_align(bg_clock_img, nullptr, LV_ALIGN_CENTER, 0, 0);
+                                            
                                         
   batteryIcon = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_text(batteryIcon, Symbols::batteryFull);
