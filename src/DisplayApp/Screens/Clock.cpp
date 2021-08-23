@@ -7,7 +7,7 @@
 #include "BatteryIcon.h"
 #include "BleIcon.h"
 #include "Symbols.h"
-#include "pic_config.h"
+
 using namespace Pinetime::Applications::Screens;
 extern lv_font_t jetbrains_mono_extrabold_compressed;
 extern lv_font_t jetbrains_mono_bold_20;
@@ -76,13 +76,7 @@ Clock::Clock(DisplayApp* app,
   displayedChar[3] = 0;
   displayedChar[4] = 0;
                                              
-     lv_obj_t * backgroundimg = lv_img_create(lv_scr_act(), nullptr);
-  
-    lv_img_set_src(backgroundimg, WF_BACKGROUND_C1);
-
-    
-
-  lv_obj_align(bg_clock_img, nullptr, LV_ALIGN_CENTER, 0, 0);
+ 
                                             
                                         
   batteryIcon = lv_label_create(lv_scr_act(), NULL);
