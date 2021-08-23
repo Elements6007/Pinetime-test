@@ -63,6 +63,7 @@ namespace Pinetime {
           DirtyValue<uint32_t> stepCount  {0};
           DirtyValue<uint8_t> heartbeat  {0};
 
+          lv_obj_t * backgroundimg;
 
           lv_obj_t* label_time;
           lv_obj_t* label_date;
@@ -75,6 +76,7 @@ namespace Pinetime {
           lv_obj_t* heartbeatBpm;
           lv_obj_t* stepIcon;
           lv_obj_t* stepValue;
+          
 
           Controllers::DateTime& dateTimeController;
           Controllers::Battery& batteryController;
