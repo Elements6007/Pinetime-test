@@ -63,7 +63,7 @@ namespace Pinetime {
           DirtyValue<uint32_t> stepCount  {0};
           DirtyValue<uint8_t> heartbeat  {0};
 
-          lv_obj_t * backgroundimg;
+          lv_obj_t* label_num;
 
           lv_obj_t* label_time;
           lv_obj_t* label_date;
