@@ -77,9 +77,7 @@ Clock::Clock(DisplayApp* app,
   displayedChar[4] = 0;
                                              
  
-  label_num = lv_label_create(lv_scr_act(), NULL);
-  lv_label_set_text(label_num, "Elements6007");
-  lv_obj_align(label_num, LV_ALIGN_IN_TOP_RIGHT, -7, 4);
+
                                         
   batteryIcon = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_text(batteryIcon, Symbols::batteryFull);
@@ -118,7 +116,7 @@ Clock::Clock(DisplayApp* app,
   lv_obj_align(heartbeatBpm, heartbeatValue, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
 
   stepValue = lv_label_create(lv_scr_act(), NULL);
-  lv_label_set_text(stepValue, "0");
+  lv_label_set_text(stepValue, "99");
   lv_obj_align(stepValue, lv_scr_act(), LV_ALIGN_IN_BOTTOM_RIGHT, -5, -2);
 
   stepIcon = lv_label_create(lv_scr_act(), NULL);
