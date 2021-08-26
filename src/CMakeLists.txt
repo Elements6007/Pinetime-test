@@ -324,7 +324,7 @@ list(APPEND SOURCE_FILES
   BlinkApp/BlinkApp.cpp
   DisplayApp/DisplayApp.cpp
   DisplayApp/Screens/Screen.cpp
-  DisplayApp/Screens/Clock.cpp
+  DisplayApp/Screens/Clock1.cpp
   DisplayApp/Screens/Message.cpp
   DisplayApp/Screens/Tile.cpp
   DisplayApp/Screens/Meter.cpp
