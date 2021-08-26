@@ -79,7 +79,7 @@ Clock::Clock(DisplayApp* app,
  
   label_num = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_text(label_num, "Elements6007");
-  lv_obj_align(label_num, LV_ALIGN_IN_TOP_RIGHT, 7-, 4);
+  lv_obj_align(label_num, LV_ALIGN_IN_TOP_RIGHT, -7, 4);
                                         
   batteryIcon = lv_label_create(lv_scr_act(), NULL);
   lv_label_set_text(batteryIcon, Symbols::batteryFull);
