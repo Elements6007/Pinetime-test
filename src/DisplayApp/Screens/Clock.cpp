@@ -1,4 +1,4 @@
-#include "WatchFaceDigital.h"
+#include "Clock.h"
 
 #include <date/date.h>
 #include <lvgl/lvgl.h>
