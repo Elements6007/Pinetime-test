@@ -1,6 +1,6 @@
 #include "Clock.h"
 
-#include <date/date.h>
+#include <date.h>
 #include <lvgl/lvgl.h>
 #include <cstdio>
 #include "BatteryIcon.h"
