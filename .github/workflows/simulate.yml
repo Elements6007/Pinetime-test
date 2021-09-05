@@ -100,7 +100,7 @@ jobs:
     - name: Checkout LVGL for WebAssembly
       run:  |
         cd /tmp
-        git clone https://github.com/Elements6007v2/lvgl-wasm
+        git clone https://github.com/AppKaki/lvgl-wasm
         
     - name: Copy Watch Face Clock.cpp to LVGL for WebAssembly
       run:  |
