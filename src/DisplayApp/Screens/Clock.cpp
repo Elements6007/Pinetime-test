@@ -108,7 +108,7 @@ Clock::Clock(DisplayApp* app,
   lv_obj_align(heartbeatIcon, lv_scr_act(), LV_ALIGN_IN_BOTTOM_LEFT, 5, -2);
 
   heartbeatValue = lv_label_create(lv_scr_act(), NULL);
-  lv_label_set_text(heartbeatValue, "0");
+  lv_label_set_text(heartbeatValue, "67");
   lv_obj_align(heartbeatValue, heartbeatIcon, LV_ALIGN_OUT_RIGHT_MID, 5, 0);
 
   heartbeatBpm = lv_label_create(lv_scr_act(), NULL);
@@ -215,7 +215,7 @@ bool Clock::Refresh() {
   // TODO stepCount = stepController.GetValue();
   if(stepCount.IsUpdated()) {
     char stepBuffer[5];
-    sprintf(stepBuffer, "6007", stepCount.Get());
+    sprintf(stepBuffer, "6005", stepCount.Get());
     lv_label_set_text(stepValue, stepBuffer);
     lv_obj_align(stepValue, lv_scr_act(), LV_ALIGN_IN_BOTTOM_RIGHT, -5, -2);
     lv_obj_align(stepIcon, stepValue, LV_ALIGN_OUT_LEFT_MID, -5, 0);
