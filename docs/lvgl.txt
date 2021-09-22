@@ -1885,7 +1885,7 @@ Code[905]:
  - func[847] size=140 <fmt_u>
  - func[848] size=115 <pad>
  - func[849] size=15 <vfprintf>
- - func[850] size=3124 <fmt_fp>
+ - func[850] size=3149 <fmt_fp>
  - func[851] size=46 <pop_arg_long_double>
  - func[852] size=5 <__DOUBLE_BITS>
  - func[853] size=143 <frexp>
@@ -1923,7 +1923,7 @@ Code[905]:
  - func[885] size=56 <std::__2::chrono::__duration_cast<std::__2::chrono::duration<long long, std::__2::ratio<1ll, 1ll> >, std::__2::chrono::duration<long long, std::__2::ratio<1ll, 1000000ll> >, std::__2::ratio<1000000ll, 1ll>, false, true>::operator()(std::__2::chrono::duration<long long, std::__2::ratio<1ll, 1ll> > const&) const>
  - func[886] size=7 <void (*std::__2::(anonymous namespace)::__libcpp_atomic_load<void (*)()>(void (* const*)(), int))()>
  - func[887] size=9 <std::get_new_handler()>
- - func[888] size=6185 <dlmalloc>
+ - func[888] size=6171 <dlmalloc>
  - func[889] size=7 <emscripten_get_heap_size>
  - func[890] size=84 <sbrk>
  - func[891] size=534 <__memcpy>

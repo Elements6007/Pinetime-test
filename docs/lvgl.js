@@ -901,7 +901,7 @@ function stringToUTF8Array(str, heap, outIdx, maxBytesToWrite) {
       heap[outIdx++] = 0x80 | (u & 63);
     } else {
       if (outIdx + 3 >= endIdx) break;
-      if (u >= 0x200000) warnOnce('Invalid Unicode code point 0x' + u.toString(16) + ' encountered when serializing a JS string to a UTF-8 string in wasm memory! (Valid unicode code points should be in range 0-0x1FFFFF).');
+      if (u > 0x10FFFF) warnOnce('Invalid Unicode code point 0x' + u.toString(16) + ' encountered when serializing a JS string to a UTF-8 string in wasm memory! (Valid unicode code points should be in range 0-0x10FFFF).');
       heap[outIdx++] = 0xF0 | (u >> 18);
       heap[outIdx++] = 0x80 | ((u >> 12) & 63);
       heap[outIdx++] = 0x80 | ((u >> 6) & 63);
@@ -1460,8 +1460,10 @@ Module["preloadedAudios"] = {}; // maps url to audio data
 
 /** @param {string|number=} what */
 function abort(what) {
-  if (Module['onAbort']) {
-    Module['onAbort'](what);
+  {
+    if (Module['onAbort']) {
+      Module['onAbort'](what);
+    }
   }
 
   what += '';
@@ -1755,6 +1757,24 @@ var ASM_CONSTS = {
           var y = demangle(x);
           return x === y ? x : (y + ' [' + x + ']');
         });
+    }
+
+  function handleException(e) {
+      // Certain exception types we do not treat as errors since they are used for
+      // internal control flow.
+      // 1. ExitStatus, which is thrown by exit()
+      // 2. "unwind", which is thrown by emscripten_unwind_to_js_event_loop() and others
+      //    that wish to return to JS event loop.
+      if (e instanceof ExitStatus || e == 'unwind') {
+        return EXITSTATUS;
+      }
+      // Anything else is an unexpected exception and we treat it as hard error.
+      var toLog = e;
+      if (e && typeof e === 'object' && e.stack) {
+        toLog = [e, e.stack];
+      }
+      err('exception thrown: ' + toLog);
+      quit_(1, e);
     }
 
   function jsStackTrace() {
@@ -2335,23 +2355,10 @@ function callMain(args) {
     // execution is asynchronously handed off to a pthread.
     // if we're not running an evented main loop, it's time to exit
     exit(ret, /* implicit = */ true);
+    return ret;
   }
   catch (e) {
-    // Certain exception types we do not treat as errors since they are used for
-    // internal control flow.
-    // 1. ExitStatus, which is thrown by exit()
-    // 2. "unwind", which is thrown by emscripten_unwind_to_js_event_loop() and others
-    //    that wish to return to JS event loop.
-    if (e instanceof ExitStatus || e == 'unwind') {
-      return;
-    }
-    // Anything else is an unexpected exception and we treat it as hard error.
-    var toLog = e;
-    if (e && typeof e === 'object' && e.stack) {
-      toLog = [e, e.stack];
-    }
-    err('exception thrown: ' + toLog);
-    quit_(1, e);
+    return handleException(e);
   } finally {
     calledMain = true;
 
